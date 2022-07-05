@@ -2,8 +2,8 @@
 def unpack_txt_file(text):
     text = text.split("\n")
     temp = []
-    for i in text[1:-1]:
-        temp.append(list(map(int, i[1:-1].split(", "))))
+    for i in text[:-1]:
+        temp.append(list(map(int, i[2:-1].split(", "))))
     return temp
 
 # append array in file:
@@ -16,4 +16,5 @@ def write_dump_in(name,who_won, data):
 def read_file(name):
     f = open(name, "r")
     lst = unpack_txt_file(f.read())
-    f.close()
+    return lst
+    f.close

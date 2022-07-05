@@ -88,11 +88,12 @@ if __name__ == "__main__":
                 
                 # opponents's move
                 if not opponent_type:
+                    test = create_dump_files.read_file(dump_file_name)
                     choices = [j for j in range(9) if [i for ar in arr for i in ar][j] == '-']
                     rand_move = moves_map[random.choice(choices)]
                     turn = do(rand_move-1,turn)
                     prev_keys_pressed.append(rand_move)
-                    print_arr(arr)
+                    print(test)
 
 
                 # check if any players win
