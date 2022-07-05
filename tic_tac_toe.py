@@ -51,6 +51,7 @@ if __name__ == "__main__":
     dump_file_name = input("dump filename (main:1, default:Enter):\n->") 
     if dump_file_name == "":
         dump_file_name = "1"
+    opponent_type = input("Computer:0, 2nd player:1, default: Enter\n->")
     dump_file_name+=".txt"
     print_arr(arr)
     
@@ -86,11 +87,12 @@ if __name__ == "__main__":
                     break
                 
                 # opponents's move
-                choices = [j for j in range(9) if [i for ar in arr for i in ar][j] == '-']
-                rand_move = moves_map[random.choice(choices)]
-                turn = do(rand_move-1,turn)
-                prev_keys_pressed.append(rand_move)
-                print_arr(arr)
+                if not opponent_type:
+                    choices = [j for j in range(9) if [i for ar in arr for i in ar][j] == '-']
+                    rand_move = moves_map[random.choice(choices)]
+                    turn = do(rand_move-1,turn)
+                    prev_keys_pressed.append(rand_move)
+                    print_arr(arr)
 
 
                 # check if any players win
